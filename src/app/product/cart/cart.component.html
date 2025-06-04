@@ -52,8 +52,8 @@
 
               <!-- Price -->
               <div class="col-2 text-end">
-                <div class="fw-bold">\${{(item.product.price * item.quantity).toFixed(2)}}</div>
-                <small class="text-muted">\${{item.product.price}} each</small>
+                <div class="fw-bold">${{(item.product.price * item.quantity).toFixed(2)}}</div>
+                <small class="text-muted">${{item.product.price}} each</small>
               </div>
 
               <!-- Remove Button -->
@@ -85,7 +85,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-between mb-2">
             <span>Subtotal ({{getTotalItems()}} items):</span>
-            <span>\${{getSubtotal().toFixed(2)}}</span>
+            <span>${{getSubtotal().toFixed(2)}}</span>
           </div>
           <div class="d-flex justify-content-between mb-2">
             <span>Shipping:</span>
@@ -93,16 +93,16 @@
           </div>
           <div class="d-flex justify-content-between mb-2">
             <span>Tax:</span>
-            <span>\${{getTax().toFixed(2)}}</span>
+            <span>${{getTax().toFixed(2)}}</span>
           </div>
           <hr>
           <div class="d-flex justify-content-between fw-bold fs-5">
             <span>Total:</span>
-            <span>\${{getTotal().toFixed(2)}}</span>
+            <span>${{getTotal().toFixed(2)}}</span>
           </div>
 
-          <button class="btn btn-success w-100 mt-3">
-            <i class="fas fa-credit-card me-2"></i>Proceed to Checkout
+          <button class="btn btn-success w-100 mt-3" (click)="startCheckout()">
+            <i class="fas fa-credit-card me-2"></i>Checkout
           </button>
 
           <button class="btn btn-outline-secondary w-100 mt-2" (click)="clearCart()">

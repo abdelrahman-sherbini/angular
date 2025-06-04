@@ -3,15 +3,12 @@ import { RouterOutlet } from '@angular/router';
 
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {filter} from 'rxjs';
-import {Filter} from './components/filter/filter';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {ProductsComponent} from './product/products/products.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ProductsComponent,NavbarComponent,FooterComponent,Filter,HttpClientModule,ReactiveFormsModule ],
+  imports: [RouterOutlet,NavbarComponent,FooterComponent,HttpClientModule,ReactiveFormsModule ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
