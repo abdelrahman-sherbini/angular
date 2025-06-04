@@ -24,7 +24,10 @@
           <span class="h5 text-primary mb-0">${{getOriginalPrice(product.price,product.discountPercentage)}}</span>
           <small class="text-muted text-decoration-line-through ms-2">${{product.price}}</small>
         </div>
-        <button class="btn btn-primary btn-sm">
+        <button class="btn btn-outline-primary flex-fill" [routerLink]="['/products', product.id]">
+          <i class="fas fa-eye me-1"></i>View Details
+        </button>
+        <button class="btn btn-primary flex-fill" (click)="addToCart()">
           <i class="fas fa-shopping-cart me-1"></i>Add to Cart
         </button>
       </div>

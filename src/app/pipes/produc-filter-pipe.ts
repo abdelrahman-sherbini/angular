@@ -1,12 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {ProductModel} from '../model/ProductModel';
+import {ProductDetailModel} from '../model/ProductDetailModel';
 
 @Pipe({
   name: 'productFilter',
   standalone: true // if using standalone
 })
 export class ProductFilterPipe implements PipeTransform {
-  transform(products: ProductModel[], filters: any): ProductModel[] {
+  transform(products: ProductDetailModel[], filters: any): ProductDetailModel[] {
     if (!products) return [];
     const { title, price, category } = filters;
     console.log('Filter category:', category);

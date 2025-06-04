@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {ProductsComponent} from './components/products/products.component';
+
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {filter} from 'rxjs';
 import {Filter} from './components/filter/filter';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {ProductsComponent} from './product/products/products.component';
 
 @Component({
   selector: 'app-root',

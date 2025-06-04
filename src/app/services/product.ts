@@ -5,6 +5,8 @@ import {map} from 'rxjs';
 import {DummyJsonProductsResponse} from '../model/ProductResponse';
 import {CategoryResponse} from '../model/CategoryResponse';
 import {CategoryModel} from '../model/CategoryModel';
+import {ProductModel} from '../model/ProductModel';
+import {ProductDetailModel} from '../model/ProductDetailModel';
 
 @Injectable({
   providedIn: 'root'
@@ -40,4 +42,23 @@ export class Product {
       }));
   }
 
+  getProductById(id: number) {
+    return this.http.get<ProductDetailModel>(`${this.baseUrl}/products/${id}`)
+      .pipe(
+        map(response => {
+          return {
+            id: response.id,
+            title: response.title,
+            description: response.description,
+            price: response.price,
+            discountPercentage: response.discountPercentage,
+            rating: response.rating,
+            stock: response.stock,
+            brand: response.brand,
+            category: response.category
+          };
+        })
+      );
+
+  }
 }

@@ -1,0 +1,122 @@
+<div class="container mt-4" *ngIf="product">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/products">Products</a></li>
+      <li class="breadcrumb-item active">{{product.title}}</li>
+    </ol>
+  </nav>
+
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-6">
+      <div class="card">
+        <img src="/ddd.jpg" [alt]="product.title" class="card-img-top" style="height: 400px; object-fit: cover;">
+      </div>
+
+      <!-- Additional Images -->
+<!--      <div class="row mt-3 g-2" *ngIf="product.images && product.images.length > 1">-->
+<!--        <div class="col-3" *ngFor="let image of product.images.slice(0, 4)">-->
+<!--          <img [src]="image" [alt]="product.title" class="img-thumbnail" style="height: 80px; object-fit: cover; cursor: pointer;">-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-6">
+      <h1 class="h2">{{product.title}}</h1>
+      <p class="text-muted">{{product.brand}}</p>
+
+      <!-- Rating -->
+      <div class="d-flex align-items-center mb-3">
+        <div class="text-warning me-2">
+          <i class="fas fa-star" *ngFor="let star of getStarArray(product.rating)"></i>
+          <i class="far fa-star" *ngFor="let star of getEmptyStarArray(product.rating)"></i>
+        </div>
+<!--        <span class="text-muted">({{product.rating}} / 5)</span>-->
+        <span [innerHTML]="product.rating | stars"></span>
+      </div>
+
+      <!-- Price -->
+      <div class="mb-3">
+        <span class="h3 text-primary">\${{product.price}}</span>
+        <span class="text-muted text-decoration-line-through ms-2" *ngIf="product.discountPercentage > 0">
+              \${{getOriginalPrice()}}
+            </span>
+        <span class="badge bg-success ms-2" *ngIf="product.discountPercentage > 0">
+              {{product.discountPercentage}}% OFF
+            </span>
+      </div>
+
+      <!-- Stock Status -->
+      <div class="mb-3">
+            <span class="badge" [class]="product.stock > 0 ? 'bg-success' : 'bg-danger'">
+              {{product.stock > 0 ? 'In Stock (' + product.stock + ' available)' : 'Out of Stock'}}
+            </span>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-4">
+        <h5>Description</h5>
+        <p>{{product.description}}</p>
+      </div>
+
+      <!-- Add to Cart -->
+      <div class="d-flex gap-3 mb-4">
+        <div class="input-group" style="width: 120px;">
+          <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity()">-</button>
+          <input type="number" class="form-control text-center" [(ngModel)]="quantity" min="1" [max]="product.stock">
+          <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity()">+</button>
+        </div>
+
+        <button class="btn btn-primary btn-lg" (click)="addToCart()" [disabled]="product.stock === 0">
+          <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+        </button>
+      </div>
+
+      <!-- Product Details -->
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Product Details</h6>
+          <ul class="list-unstyled mb-0">
+            <li><strong>Category:</strong> {{product.category}}</li>
+            <li><strong>Brand:</strong> {{product.brand}}</li>
+            <li><strong>SKU:</strong> {{product.id}}</li>
+<!--            <li *ngIf="product.warrantyInformation"><strong>Warranty:</strong> {{product.warrantyInformation}}</li>-->
+<!--            <li *ngIf="product.shippingInformation"><strong>Shipping:</strong> {{product.shippingInformation}}</li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews Section -->
+  <div class="row mt-5" *ngIf="product.reviews && product.reviews.length > 0">
+    <div class="col-12">
+      <h4>Customer Reviews</h4>
+      <div class="card" *ngFor="let review of product.reviews">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h6 class="card-title">{{review.reviewerName}}</h6>
+            <div class="text-warning">
+              <i class="fas fa-star" *ngFor="let star of getStarArray(review.rating)"></i>
+              <i class="far fa-star" *ngFor="let star of getEmptyStarArray(review.rating)"></i>
+            </div>
+          </div>
+          <p class="card-text">{{review.comment}}</p>
+          <small class="text-muted">{{review.date | date}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div class="container mt-4" *ngIf="!product">
+  <div class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>

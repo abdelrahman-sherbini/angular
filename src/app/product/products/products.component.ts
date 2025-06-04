@@ -4,8 +4,10 @@ import {FormGroup,FormBuilder, FormsModule,ReactiveFormsModule} from '@angular/f
 import {Product} from '../../services/product';
 import {ProductModel} from '../../model/ProductModel';
 import {CategoryModel} from '../../model/CategoryModel';
-import {ProductCard} from '../product-card/product-card';
+
 import {ProductFilterPipe} from '../../pipes/produc-filter-pipe';
+import {ProductCard} from '../../components/product-card/product-card';
+import {ProductDetailModel} from '../../model/ProductDetailModel';
 
 @Component({
   selector: 'app-products',
@@ -28,7 +30,7 @@ export class ProductsComponent implements OnInit{
 
   public filterForm: FormGroup;
   public categories: CategoryModel[] = [];
-  public products: ProductModel[] = [];
+  public products: ProductDetailModel[] = [];
   public total: number = 0;
   constructor(private _productService: Product,private fb: FormBuilder) {
     this.filterForm = this.fb.group({
