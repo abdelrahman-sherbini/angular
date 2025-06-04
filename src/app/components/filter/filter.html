@@ -1,0 +1,155 @@
+<!-- Filter Component -->
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h6 class="mb-0">
+      <i class="fas fa-filter me-2"></i>Filters
+    </h6>
+  </div>
+
+  <div class="card-body p-0">
+    <!-- Price Range Filter -->
+    <div class="border-bottom p-3">
+      <h6 class="fw-bold mb-3">Price Range</h6>
+      <div class="row g-2">
+        <div class="col-6">
+          <input type="number" class="form-control form-control-sm" placeholder="Min" min="0">
+        </div>
+        <div class="col-6">
+          <input type="number" class="form-control form-control-sm" placeholder="Max" min="0">
+        </div>
+      </div>
+      <input type="range" class="form-range mt-2" min="0" max="1000" step="10">
+      <div class="d-flex justify-content-between small text-muted">
+        <span>$0</span>
+        <span>$1000+</span>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="border-bottom p-3">
+      <h6 class="fw-bold mb-3">Categories</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="electronics">
+        <label class="form-check-label" for="electronics">
+          Electronics <span class="badge bg-secondary ms-1">24</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="clothing">
+        <label class="form-check-label" for="clothing">
+          Clothing <span class="badge bg-secondary ms-1">18</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="home">
+        <label class="form-check-label" for="home">
+          Home & Garden <span class="badge bg-secondary ms-1">12</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sports">
+        <label class="form-check-label" for="sports">
+          Sports <span class="badge bg-secondary ms-1">8</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="books">
+        <label class="form-check-label" for="books">
+          Books <span class="badge bg-secondary ms-1">15</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Brand Filter -->
+    <div class="border-bottom p-3">
+      <h6 class="fw-bold mb-3">Brands</h6>
+      <div class="mb-2">
+        <input type="search" class="form-control form-control-sm" placeholder="Search brands...">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="apple">
+        <label class="form-check-label" for="apple">Apple</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="samsung">
+        <label class="form-check-label" for="samsung">Samsung</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="nike">
+        <label class="form-check-label" for="nike">Nike</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="adidas">
+        <label class="form-check-label" for="adidas">Adidas</label>
+      </div>
+    </div>
+
+    <!-- Rating Filter -->
+    <div class="border-bottom p-3">
+      <h6 class="fw-bold mb-3">Customer Rating</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="rating" id="rating5">
+        <label class="form-check-label" for="rating5">
+          <div class="d-flex align-items-center">
+            <div class="text-warning me-2">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span>5 Stars</span>
+          </div>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="rating" id="rating4">
+        <label class="form-check-label" for="rating4">
+          <div class="d-flex align-items-center">
+            <div class="text-warning me-2">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <span>4+ Stars</span>
+          </div>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="rating" id="rating3">
+        <label class="form-check-label" for="rating3">
+          <div class="d-flex align-items-center">
+            <div class="text-warning me-2">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <span>3+ Stars</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Availability Filter -->
+    <div class="p-3">
+      <h6 class="fw-bold mb-3">Availability</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="inStock">
+        <label class="form-check-label" for="inStock">
+          <span class="text-success">In Stock</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="onSale">
+        <label class="form-check-label" for="onSale">
+          <span class="text-danger">On Sale</span>
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="freeShipping">
+        <label class="form-check-label" for="freeShipping">
+          Free Shipping
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary btn-sm">Apply Filters</button>
+      <button class="btn btn-outline-secondary btn-sm">Clear All</button>
+    </div>
+  </div>
+</div>

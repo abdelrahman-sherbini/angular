@@ -1,0 +1,32 @@
+  <div class="card h-100 shadow-sm product-card">
+    <div class="position-relative">
+      <img src="https://via.placeholder.com/300x200?text=iPhone+15" class="card-img-top" alt="iPhone 15">
+      <span class="badge bg-danger position-absolute top-0 end-0 m-2">-{{ product.discountPercentage }}</span>
+      <div class="position-absolute top-0 start-0 m-2">
+        <button class="btn btn-sm btn-light rounded-circle">
+          <i class="far fa-heart"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <span class="badge bg-primary">{{ product.category }}</span>
+        <span [innerHTML]="product.rating | stars"></span>
+      </div>
+      <h6 class="card-title">{{ product.title }}</h6>
+      <p class="card-text text-muted small">{{product.description}}</p>
+      <div class="d-flex align-items-center justify-content-between">
+
+        <div class="badge" *ngIf="product.discountPercentage==0">
+          {{ product.price }}%
+        </div>
+        <div *ngIf="product.discountPercentage>0">
+          <span class="h5 text-primary mb-0">${{getOriginalPrice(product.price,product.discountPercentage)}}</span>
+          <small class="text-muted text-decoration-line-through ms-2">${{product.price}}</small>
+        </div>
+        <button class="btn btn-primary btn-sm">
+          <i class="fas fa-shopping-cart me-1"></i>Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
